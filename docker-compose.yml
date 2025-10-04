@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  voip-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: voip-api
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./ .env:/app/.env
+    # environment:
+    #   # Database Configuration
+    #   DB_HOST: postgres       # If you don't have a postgres service, remove or adjust this
+    #   DB_PORT: 5432
+    #   DB_USER: fusionpbx
+    #   DB_PASSWORD: fusionpbx_password
+    #   DB_NAME: fusionpbx
+    #   DB_SSLMODE: disable
+
+    #   # FreeSWITCH Configuration
+    #   FREESWITCH_HOST: host.docker.internal  # For host machine access from container
+    #   FREESWITCH_PORT: 8021
+    #   FREESWITCH_PASSWORD: ClueCon
+
+    #   # Server Configuration
+    #   SERVER_PORT: 8080
+    #   GIN_MODE: release
+
+    networks:
+      - voip-network
+    restart: unless-stopped
+
+networks:
+  voip-network:
+    driver: bridge
