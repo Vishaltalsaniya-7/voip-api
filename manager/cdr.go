@@ -10,6 +10,19 @@ import (
 	"github.com/vishaltalsaniya-7/voip-api/config"
 )
 
+
+
+type CallStatus struct {
+	UUID          string `json:"uuid"`
+	Caller        string `json:"caller"`
+	Callee        string `json:"callee"`
+	State         string `json:"state"`
+	CallDirection string `json:"callDirection"`
+	CreatedTime   string `json:"createdTime"`
+	AnsweredTime  string `json:"answeredTime"`
+	Duration      int    `json:"duration"`
+}
+
 type ESLManager struct {
 	config config.FreeSWITCHConfig
 }
@@ -116,19 +129,6 @@ func (e *ESLManager) parseCallID(resp *eventsocket.Event) string {
 	return ""
 }
 
-
-
-
-type CallStatus struct {
-	UUID          string `json:"uuid"`
-	Caller        string `json:"caller"`
-	Callee        string `json:"callee"`
-	State         string `json:"state"`
-	CallDirection string `json:"callDirection"`
-	CreatedTime   string `json:"createdTime"`
-	AnsweredTime  string `json:"answeredTime"`
-	Duration      int    `json:"duration"`
-}
 
 func (e *ESLManager) GetCallStatus(uuid string) (*CallStatus, error) {
 		addr := fmt.Sprintf("%s:%s", e.config.Host, e.config.Port)
