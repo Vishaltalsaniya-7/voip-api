@@ -1,0 +1,88 @@
+package models
+
+import (
+	"database/sql"
+	"time"
+)
+
+type CDR struct {
+	XMLCDRUUID             sql.NullString
+	DomainUUID             sql.NullString
+	ProviderUUID           sql.NullString
+	ExtensionUUID          sql.NullString
+	SIPCallID              sql.NullString
+	DomainName             sql.NullString
+	AccountCode            sql.NullString
+	Direction              sql.NullString
+	DefaultLanguage        sql.NullString
+	Context                sql.NullString
+	CallerIDName           sql.NullString
+	CallerIDNumber         sql.NullString
+	CallerDestination      sql.NullString
+	SourceNumber           sql.NullString
+	DestinationNumber      sql.NullString
+	StartEpoch             sql.NullInt64
+	StartStamp             time.Time
+	AnswerStamp            sql.NullTime
+	AnswerEpoch            sql.NullInt64
+	EndEpoch               sql.NullInt64
+	EndStamp               sql.NullTime
+	Duration               sql.NullInt64
+	MDuration              sql.NullInt64
+	BillSec                sql.NullInt64
+	BillMsec               sql.NullInt64
+	HoldAccumSeconds       sql.NullInt64
+	BridgeUUID             sql.NullString
+	ReadCodec              sql.NullString
+	ReadRate               sql.NullInt64
+	WriteCodec             sql.NullString
+	WriteRate              sql.NullInt64
+	RemoteMediaIP          sql.NullString
+	NetworkAddr            sql.NullString
+	RecordPath             sql.NullString
+	RecordName             sql.NullString
+	RecordLength           sql.NullInt64
+	RecordTranscription    sql.NullString
+	Leg                    sql.NullString
+	OriginatingLegUUID     sql.NullString
+	PDDMs                  sql.NullInt64
+	RTPAudioInMOS          sql.NullFloat64
+	LastApp                sql.NullString
+	LastArg                sql.NullString
+	VoicemailMessage       sql.NullString
+	MissedCall             sql.NullBool
+	CallCenterQueueUUID    sql.NullString
+	CCSide                 sql.NullString
+	CCMemberUUID           sql.NullString
+	CCQueueJoinedEpoch     sql.NullInt64
+	CCQueue                sql.NullString
+	CCMemberSessionUUID    sql.NullString
+	CCAgentUUID            sql.NullString
+	CCAgent                sql.NullString
+	CCAgentType            sql.NullString
+	CCAgentBridged         sql.NullBool
+	CCQueueAnsweredEpoch   sql.NullInt64
+	CCQueueTerminatedEpoch sql.NullInt64
+	CCQueueCanceledEpoch   sql.NullInt64
+	CCCancelReason         sql.NullString
+	CCCause                sql.NullString
+	WaitSec                sql.NullInt64
+	ConferenceName         sql.NullString
+	ConferenceUUID         sql.NullString
+	ConferenceMemberID     sql.NullString
+	DigitsDialed           sql.NullString
+	PINNumber              sql.NullString
+	Status                 sql.NullString
+	HangupCause            sql.NullString
+	HangupCauseQ850        sql.NullString
+	SIPHangupDisposition   sql.NullString
+	RingGroupUUID          sql.NullString
+	IVRMenuUUID            sql.NullString
+	CallFlow               sql.NullString
+	XML                    sql.NullString
+	JSON                   sql.NullString
+	InsertDate             sql.NullTime
+	InsertUser             sql.NullString
+	UpdateDate             sql.NullTime
+	UpdateUser             sql.NullString
+}
